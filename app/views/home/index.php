@@ -71,7 +71,7 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-primary">Ingresar</button>
+				<button type="button" class="btn btn-primary">Login</button>
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
 			</div>
 		</div>
