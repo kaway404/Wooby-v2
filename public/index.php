@@ -14,7 +14,7 @@ if (!session_id()) @session_start();
 $config = Config::loadFromFile(PROJECTPATH.'/config/routes.yaml');
 $router = Router::parseConfig($config);
 
-/*
+
 ActiveRecord\Config::initialize(function($cfg)
 {
 	$config=json_decode(file_get_contents('../config/settings.json'));
@@ -22,7 +22,7 @@ ActiveRecord\Config::initialize(function($cfg)
 	$cfg->set_connections(array(
 	'development' => 'mysql://'.$config->bd_user.':'.$config->bd_pass.'@'.$config->bd_host.'/biometric;charset=utf8'));
 });
-*/
+
 
 
 if(DEBUG==false){
