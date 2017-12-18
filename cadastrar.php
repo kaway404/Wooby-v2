@@ -69,7 +69,7 @@
       <label>Concordo com os termos de usos</label>
     </div>
   </div>
-  <button class="ui button" type="submit">Login</button>
+  <button class="ui button" type="submit">Registrar</button>
 </form>
 </div>
 </div>
