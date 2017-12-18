@@ -8,14 +8,14 @@
     <title>Wooby</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-	 <link href="css/wooby.css" rel="stylesheet">
-	 <link rel="stylesheet" type="text/css" href="css/semantic.min.css">
+    <link href="public/assets/css/bootstrap.min.css" rel="stylesheet">
+	 <link href="public/assets/css/wooby.css" rel="stylesheet">
+	 <link rel="stylesheet" type="text/css" href="/public/assets/css/semantic.min.css">
 <script
   src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
-<script src="/js/semantic.min.js"></script>
+<script src="public/assets/js/semantic.min.js"></script>
 
     <!-- HTML5 shim e Respond.js para suporte no IE8 de elementos HTML5 e media queries -->
     <!-- ALERTA: Respond.js não funciona se você visualizar uma página file:// -->
@@ -32,14 +32,14 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <a class="navbar-brand" href="#"><img src="/static/logo.png" class="logo"/></a>
+      <a class="navbar-brand" href="#"><img src="public/assets/img/logo.png" class="logo"/></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="nav navbar-nav navbar-right navw">
-        <li class="login"><a href="login.php">Login</a></li></ul>
+        <li class="login" id="login"><a>Login</a></li></ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
@@ -80,31 +80,50 @@
 
 </footer>
 
-<div class="ui basic modal">
-  <div class="ui icon header">
-    <i class="archive icon"></i>
-   Você está navegando no Wooby
+<div class="ui modal" id="modal" style="position: fixed; top: 40px; height: 430px;">
+  <i class="close icon"></i>
+  <div class="header">
+    Login
   </div>
-  <div class="content">
-    <p>Você gostou do site? Curta nossa página.</p>
+  <div class="image content">
+    <div class="ui medium image">
+      <img src="http://www.animexis.com.br/wp-content/uploads/2015/07/aang2.jpg">
+    </div>
+    <div class="description" style="width: 100% !important;">
+      <div class="ui header">Login.</div>
+     <form class="ui form">
+  <div class="field">
+    <label>Email</label>
+    <input type="text" name="email" placeholder="E-mail">
+  </div>
+  <div class="field">
+    <label>Senha</label>
+    <input type="password" name="senha" placeholder="Senha">
+  </div>
+
+  <button class="ui button" type="submit">Login</button>
+</form>
+    </div>
   </div>
   <div class="actions">
-    <div class="ui red basic cancel inverted button">
-      <i class="remove icon"></i>
-      Não
+    <div class="ui black deny button" id="nope">
+      Sair
     </div>
-    <a href="https://www.facebook.com/WoobyAnimes/" target="_blank"><div class="ui green ok inverted button">
-      <i class="checkmark icon"></i>
-      Sim
-    </div>
-	</a>
   </div>
 </div>
 
+
 <script>
-$('.ui.basic.modal')
-  .modal('show')
-;
+var loginb = document.getElementById('modal');
+document.getElementById("login").onclick = function() {animacaomenupos()};
+document.getElementById("modal").onclick = function() {animacaomenupos()};
+document.getElementById("nope").onclick = function() {animasair()};
+function animacaomenupos(){
+$("#modal").fadeIn(600);
+}
+function animasair(){
+$("#modal").fadeOut(600);
+}
 </script>
     <!-- jQuery (obrigatório para plugins JavaScript do Bootstrap) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
