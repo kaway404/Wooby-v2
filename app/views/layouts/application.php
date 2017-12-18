@@ -10,9 +10,8 @@
 	<!-- Bootstrap -->
 	<link href="/assets/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/assets/css/wooby.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="assets/css/semantic.min.css">
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-	<script src="/assets/js/semantic.min.js"></script>
+
 
 	<!-- HTML5 shim e Respond.js para suporte no IE8 de elementos HTML5 e media queries -->
 	<!-- ALERTA: Respond.js não funciona se você visualizar uma página file:// -->
@@ -24,13 +23,6 @@
 	</head>
 	<body>
 		<?= $str ?>
-		
-		<script>
-			$('.ui.basic.modal').modal('show');
-		</script>
-		<!-- jQuery (obrigatório para plugins JavaScript do Bootstrap) -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<!-- Inclui todos os plugins compilados (abaixo), ou inclua arquivos separadados se necessário -->
-		<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
 	</body>
 	</html>
