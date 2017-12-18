@@ -1,5 +1,6 @@
-<?php 
-class User extends ActiveRecord\Model{
+<?php
+namespace App\Models; 
+class User extends \ActiveRecord\Model{
 	static function authenticate($user,$pass){
 		if(isset($_SESSION['id'])){
 			unset($_SESSION['id']);

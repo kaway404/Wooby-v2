@@ -22,7 +22,9 @@
 		
 	</head>
 	<body>
-		<?= $str ?>
+	<?php $msg = new \Plasticbrain\FlashMessages\FlashMessages(); ?>
+	<?php $msg->display(); ?>
+	<?= $str ?>
 	<script src="assets/js/bootstrap.min.js"></script>
 	</body>
 	</html>

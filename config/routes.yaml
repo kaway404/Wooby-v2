@@ -2,3 +2,5 @@ base_path: /
 routes:
   index: [/,App\Controllers\homeController.index,GET]
   login: [/sessions/create,App\Controllers\sessionsController.create,POST]
+  sign_up: [/sign_up,App\Controllers\registrationsController.new,GET]
+  create_user: [/registrations/create,App\Controllers\registrationsController.create,POST]

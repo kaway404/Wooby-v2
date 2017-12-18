@@ -1,13 +1,20 @@
 <?php 
 namespace App\Controllers;
 use \Core\View;
-class registrationsController{
+use \App\Models\User;
+class registrationsController extends Controller{
+	public function new(){
+		View::set('title','Cadastro de Usuario');
+		View::render('registrations/new');
+	}
+
 	public function create(){
-		if(User::authenticate($_POST['email'],$_POST['senha'])){
-			echo 'true';
+		$user=new User($_POST['User']);
+		if($user->save){
+			$this->msg->success('Cadastro realizado com sucesso!','/');
 		}
 		else{
-			echo 'false';
+			$this->msg->error('Cadastro Falhido','/');
 		}
 	}
 }
