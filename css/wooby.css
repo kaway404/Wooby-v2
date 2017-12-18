@@ -1,0 +1,186 @@
+body{
+	background: #000 !important;
+}
+
+.homec{
+	background-image: url(https://www.pixelstalk.net/wp-content/uploads/2016/08/Sky-Scenery-1920x1080-Wallpaper.jpg);
+	width: 100%;
+	height: 400px;
+	background-size: cover;
+	position: relative;
+	top: -20px !important;
+	border-bottom: 2px solid #ccc;
+	
+}
+
+.defaultw{
+	background: #18152b !important;
+	border: none;
+	border-radius: 0;
+	height: 60px !important;
+	z-index: 1000;
+}
+
+.defaultw a{
+	color: #fff !important;
+	padding: 20px !important;
+	font-size: 21px;
+}
+	
+.homec h1{
+	text-shadow: 1px 2px 3px #f5f5f5;
+	color: #fff;
+	font-size: 40px;
+}
+
+.re{
+	width: 300px;
+	height: 50px;
+	font-size: 23px;
+	background: #18152b !important;
+	top: 60px;
+	position: relative;
+}
+
+.homec p{
+	text-shadow: 1px 2px 3px #f5f5f5;
+	font-size: 25px;
+	color: #fff;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
+	background: #502fa9;
+}
+
+.dropdown-menu{
+	background: #202fa9 !important;
+}
+
+.dropdown-menu>li>a:hover{
+	background: #502fa9 !important;
+}
+
+.seja{
+	top: -50px;
+	position: relative;
+}
+
+.seja h1{
+	font-size: 35px;
+}
+
+.seja p{
+	font-size: 30px;
+}
+
+.sejaa{
+	width: 100%;
+	height: auto;
+	background: #18152b;
+	position: relative;
+	top: -90px;
+	padding-bottom: 10px;
+}
+
+.sejaa h1{
+	color: #fff;
+	top: -20px;
+	position: relative;
+}
+
+.sejaa p{
+	color: #fff;
+	font-size: 22px;
+	top: -10px;
+	position: relative;
+}
+
+.avatar{
+	width: 120px;
+	border-radius: 50%;
+	height: 120px;
+	position: relative;
+	top: -30px;
+	border: 5px solid #18152b;
+}
+
+.logo{
+	width: 125px !important;
+	height: 75px !important;
+	position: relative;
+	left: 0;
+	top: -28px;
+	opacity: .75;
+}
+
+.logo:hover{
+	opacity: 1;
+}
+
+.destaque{
+	background-image: url(https://images6.alphacoders.com/607/thumb-1920-607703.png);
+	width: 100%;
+	height: 250px;
+	position: relative;
+	top: -110px;
+	background-size: cover;
+	text-align: center;
+	border-top: 5px solid #4754b1;
+}
+
+.destaque h1{
+	color: #fff;
+	padding: 20px;
+}
+
+.destaque p{
+	color: #fff;
+	font-size: 32px;
+}
+
+.overlay{
+	background: rgba(0,0,0,.50);
+	width: 100%;
+	height: 100%;
+	position: fixed;
+}
+
+footer{
+	width: 100%;
+	background: #4754b1;
+	z-index: 500;
+	height: auto;
+	position: relative;
+}
+
+.navw{
+	display: block;
+}
+
+.align-login{
+	max-width: 900px;
+	position: relative;
+	margin: 0px auto;
+}
+
+.login_body{
+	background: #000 !important;
+}
+
+.loginfs{
+	background: #e1e1e1e1;
+	border-radius: 10px;
+	padding: 40px;
+	position: relative;
+	top: 50px;
+	z-index: 500;
+}
+
+.background{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-size: cover;
+}
