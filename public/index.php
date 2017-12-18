@@ -3,7 +3,10 @@ define("PROJECTPATH", dirname(__DIR__));
 define("APPPATH", PROJECTPATH . '/app');
 define("DEBUG", true);
 require "../vendor/autoload.php";
+require_once('../app/controllers/controller.php');
 require_once('../app/controllers/homeController.php');
+
+
 require_once('../core/view.php');
 use PHPRouter\RouteCollection;
 use PHPRouter\Router;
