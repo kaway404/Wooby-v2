@@ -1,0 +1,3 @@
+base_path: /
+routes:
+  index: [/,App\Controllers\homeController.index,GET]
