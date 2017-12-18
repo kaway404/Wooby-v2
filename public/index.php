@@ -9,15 +9,28 @@ use PHPRouter\Route;
 use PHPRouter\Config;
 $config = Config::loadFromFile(PROJECTPATH.'/config/routes.yaml');
 $router = Router::parseConfig($config);
+/*
 require_once('../app/controllers/controller.php');
 require_once('../app/controllers/homeController.php');
 require_once('../app/controllers/sessionsController.php');
 require_once('../app/models/User.php');
-
 require_once('../core/view.php');
+*/
+
 
 if (!session_id()) @session_start();
-
+function autoload_classes($class_name){
+	$filename = PROJECTPATH . '/' . str_replace('\\', '/', $class_name) .'.php';
+	if(is_file($filename))
+	{
+		include_once $filename;
+	}
+	else{
+		echo str_replace('\\', '/', $class_name.'<br>');
+		echo $filename;
+	}
+}
+spl_autoload_register('autoload_classes');
 
 
 
