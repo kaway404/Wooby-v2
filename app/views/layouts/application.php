@@ -34,18 +34,21 @@
 
 			<ul class="nav navbar-nav navbar-right navw">
 				<li class="login" id="login">
-					<a href='#' data-toggle="modal" data-target="#login_modal">Login</a>
-				</li>
-				<li class="register" id="register">
-					<a href='/sign_up' data-toggle="modal">Registrar</a>
+					<a href='#' data-toggle="modal" data-target="#login_modal">Entrar</a>
 				</li>
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->
-	</nav>
+</nav>
+
 	<?php $msg = new \Plasticbrain\FlashMessages\FlashMessages(); ?>
 	<?php $msg->display(); ?>
 	<?= $str ?>
+	
+	<footer>
+	<p>Wooby Animes - Todos os direitos reservados. <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></p>
+	</footer>
+	
 	<script src="assets/js/bootstrap.min.js"></script>
 	</body>
 	</html>
