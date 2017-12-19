@@ -7,7 +7,7 @@
 
 
 body{
-	background: #000 !important;
+	background: #fff !important;
 	font: 'Oxygen', sans-serif !important;
 }
 
@@ -42,7 +42,7 @@ body{
 }
 
 .re{
-	width: 300px;
+	width: auto;
 	height: 50px;
 	font-size: 23px;
 	background: linear-gradient(to top, #4c0cb6, #6c0cb6) !important;
@@ -65,6 +65,8 @@ body{
 .homec p{
 	font-size: 25px;
 	color: #fff;
+	color: #f5f5f5f;
+	font-weight: 500;
 }
 
 .form-group input{
@@ -114,10 +116,14 @@ body{
 
 .seja h1{
 	font-size: 35px;
+	top: -20px;
+	position: relative;
 }
 
 .seja p{
 	font-size: 30px;
+	top: -20px;
+	position: relative;
 }
 
 .sejaa{
@@ -127,28 +133,37 @@ body{
 	position: relative;
 	top: -90px;
 	padding-bottom: 10px;
+	transition: 2s;
 }
+
 
 .sejaa h1{
 	color: #fff;
-	top: -20px;
 	position: relative;
+	top: -40px;
+	font-size: 32px;
 }
 
 .sejaa p{
 	color: #fff;
-	font-size: 22px;
-	top: -10px;
+	font-size: 25px;
+	top: -20px;
 	position: relative;
 }
 
 .avatar{
 	width: 120px;
-	border-radius: 50%;
+	border-radius: 40%;
 	height: 120px;
 	position: relative;
 	top: -48px;
 	border: 5px solid #18152b;
+	transition: 1s;
+	cursor: pointer;
+}
+
+.avatar:hover{
+	border-radius: 50%;
 }
 
 .logo{
@@ -194,10 +209,15 @@ body{
 
 footer{
 	width: 100%;
-	background: #4754b1;
+	background: #18152b;
+	color: #fff;
+	text-align: center;
+	font-size: 22px;
 	z-index: 500;
 	height: auto;
-	position: relative;
+	position: fixed;
+	padding: 2px;
+	bottom: 0;
 }
 
 .navw{
@@ -205,7 +225,7 @@ footer{
 }
 
 .align-login{
-	max-width: 900px;
+	max-width: 600px;
 	position: relative;
 	margin: 0px auto;
 }
@@ -215,8 +235,8 @@ footer{
 }
 
 .loginfs{
-	background: #e1e1e1e1;
-	border-radius: 10px;
+	background: #ffffff;
+	border-radius: 2px;
 	padding: 40px;
 	position: relative;
 	top: 50px;
@@ -251,11 +271,23 @@ footer{
 }
 
 .cadastrar{
-	height: 40px;
+	height: 50px;
 	position: relative;
 	top: 20px;
-	width: 120px;
+	width: 100%;
 	border: none;
 	background: #4754b1;
 	color: #fff;
+	font-size: 22px;
+	transition: 0.4s;
+}
+
+.loginfs h1{
+	font-size: 29px;
+	position: relative;
+	top: -30px;
+}
+
+.cadastrar:hover{
+	background: #4c0cb6;
 }
