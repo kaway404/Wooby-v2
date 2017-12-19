@@ -14,6 +14,9 @@
 				<li class="login" id="login">
 					<a href='#' data-toggle="modal" data-target="#login_modal">Login</a>
 				</li>
+				<li class="register" id="register">
+					<a href='/sign_up' data-toggle="modal">Registrar</a>
+				</li>
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->
