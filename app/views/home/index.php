@@ -25,7 +25,7 @@
 	<center>
 		<h1>Comece seu mês gratuito.</h1>
 		<p>Assista a seus animes favoritos agora no Wooby.</p>
-		<p><a class="btn btn-primary btn-lg re" href="cadastrar.php" role="button">CRIAR CONTA GRÁTIS</a></p>
+		<p><a class="btn btn-primary btn-lg re" href="/sign_up" role="button">CRIAR CONTA GRÁTIS</a></p>
 	</center>
 </div>
 
