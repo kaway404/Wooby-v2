@@ -30,10 +30,6 @@
     <label>Nome de usuario</label>
     <input class="uifo" type="text" name="User[username]" placeholder="Exemplo">
   </div>
-  <div class="field">
-    <label>Nome de quem vai usar a conta</label>
-    <input class="uifo" type="text" name="User[profile]" placeholder="Exemplo">
-  </div>
   <button class="cadastrar" type="submit">Registrar</button>
 </form>
 </div>
