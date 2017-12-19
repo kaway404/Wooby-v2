@@ -20,11 +20,15 @@ of the actual application level protocol, such as HTTP, SMTP, IMAP, Telnet etc.
     * [Authentication](#authentication)
     * [Proxy chaining](#proxy-chaining)
     * [Connection timeout](#connection-timeout)
+    * [SOCKS over TLS](#socks-over-tls)
+    * [Unix domain sockets](#unix-domain-sockets)
   * [Server](#server)
     * [Server connector](#server-connector)
     * [Protocol version](#server-protocol-version)
     * [Authentication](#server-authentication)
     * [Proxy chaining](#server-proxy-chaining)
+    * [SOCKS over TLS](#server-socks-over-tls)
+    * [Unix domain sockets](#server-unix-domain-sockets)
 * [Servers](#servers)
   * [Using a PHP SOCKS server](#using-a-php-socks-server)
   * [Using SSH as a SOCKS server](#using-ssh-as-a-socks-server)
@@ -553,6 +557,96 @@ as usual.
 > Also note how connection timeout is in fact entirely handled outside of this
   SOCKS client implementation.
 
+#### SOCKS over TLS
+
+All [SOCKS protocol versions](#protocol-version) support forwarding TCP/IP
+based connections and higher level protocols.
+This implies that you can also use [secure TLS connections](#secure-tls-connections)
+to transfer sensitive data across SOCKS proxy servers.
+This means that no eavesdropper nor the proxy server will be able to decrypt
+your data.
+
+However, the initial SOCKS communication between the client and the proxy is
+usually via an unencrypted, plain TCP/IP connection.
+This means that an eavesdropper may be able to see *where* you connect to and
+may also be able to see your [SOCKS authentication](#authentication) details
+in cleartext.
+
+As an alternative, you may establish a secure TLS connection to your SOCKS
+proxy before starting the initial SOCKS communication.
+This means that no eavesdroppper will be able to see the destination address
+you want to connect to or your [SOCKS authentication](#authentication) details.
+
+You can use the `sockss://` URI scheme or use an explicit
+[SOCKS protocol version](#protocol-version) like this:
+
+```php
+$client = new Client('sockss://127.0.0.1:1080', new Connector($loop));
+
+$client = new Client('socks5s://127.0.0.1:1080', new Connector($loop));
+```
+
+See also [example 32](examples).
+
+Simiarly, you can also combine this with [authentication](#authentication)
+like this:
+
+```php
+$client = new Client('sockss://user:pass@127.0.0.1:1080', new Connector($loop));
+```
+
+> Note that for most use cases, [secure TLS connections](#secure-tls-connections)
+  should be used instead. SOCKS over TLS is considered advanced usage and is
+  used very rarely in practice.
+  In particular, the SOCKS server has to accept secure TLS connections, see
+  also [Server SOCKS over TLS](#server-socks-over-tls) for more details.
+  Also, PHP does not support "double encryption" over a single connection.
+  This means that enabling [secure TLS connections](#secure-tls-connections)
+  over a communication channel that has been opened with SOCKS over TLS
+  may not be supported.
+
+> Note that the SOCKS protocol does not support the notion of TLS. The above
+  works reasonably well because TLS is only used for the connection between
+  client and proxy server and the SOCKS protocol data is otherwise identical.
+  This implies that this may also have only limited support for
+  [proxy chaining](#proxy-chaining) over multiple TLS paths.
+
+#### Unix domain sockets
+
+All [SOCKS protocol versions](#protocol-version) support forwarding TCP/IP
+based connections and higher level protocols.
+In some advanced cases, it may be useful to let your SOCKS server listen on a
+Unix domain socket (UDS) path instead of a IP:port combination.
+For example, this allows you to rely on file system permissions instead of
+having to rely on explicit [authentication](#authentication).
+
+You can use the `socks+unix://` URI scheme or use an explicit
+[SOCKS protocol version](#protocol-version) like this:
+
+```php
+$client = new Client('socks+unix:///tmp/proxy.sock', new Connector($loop));
+
+$client = new Client('socks5+unix:///tmp/proxy.sock', new Connector($loop));
+```
+
+Simiarly, you can also combine this with [authentication](#authentication)
+like this:
+
+```php
+$client = new Client('socks+unix://user:pass@/tmp/proxy.sock', new Connector($loop));
+```
+
+> Note that Unix domain sockets (UDS) are considered advanced usage and PHP only
+  has limited support for this.
+  In particular, enabling [secure TLS](#secure-tls-connections) may not be
+  supported.
+
+> Note that SOCKS protocol does not support the notion of UDS paths. The above
+  works reasonably well because UDS is only used for the connection between
+  client and proxy server and the path will not actually passed over the protocol.
+  This implies that this does also not support [proxy chaining](#proxy-chaining)
+  over multiple UDS paths.
+
 ### Server
 
 The `Server` is responsible for accepting incoming communication from SOCKS clients
@@ -644,6 +738,7 @@ $server->setAuth(function ($username, $password, $remote) {
     // or use promises for delayed authentication
 
     // $remote is a full URI à la socks5://user:pass@192.168.1.1:1234
+    // or socks5s://user:pass@192.168.1.1:1234 for SOCKS over TLS
     // useful for logging or extracting parts, such as the remote IP
     $ip = parse_url($remote, PHP_URL_HOST);
 
@@ -718,12 +813,86 @@ Proxy chaining can happen on the server side and/or the client side:
   not really know anything about chaining at all.
   This means that this is a server-only property and can be implemented as above.
 
+#### Server SOCKS over TLS
+
+All [SOCKS protocol versions](#server-protocol-version) support forwarding TCP/IP
+based connections and higher level protocols.
+This implies that you can also use [secure TLS connections](#secure-tls-connections)
+to transfer sensitive data across SOCKS proxy servers.
+This means that no eavesdropper nor the proxy server will be able to decrypt
+your data.
+
+However, the initial SOCKS communication between the client and the proxy is
+usually via an unencrypted, plain TCP/IP connection.
+This means that an eavesdropper may be able to see *where* the client connects
+to and may also be able to see the [SOCKS authentication](#authentication)
+details in cleartext.
+
+As an alternative, you may listen for SOCKS over TLS connections so
+that the client has to establish a secure TLS connection to your SOCKS
+proxy before starting the initial SOCKS communication.
+This means that no eavesdroppper will be able to see the destination address
+the client wants to connect to or their [SOCKS authentication](#authentication)
+details.
+
+You can simply start your listening socket on the `tls://` URI scheme like this:
+
+```php
+$loop = \React\EventLoop\Factory::create();
+
+// listen on tls://127.0.0.1:1080 with the given server certificate
+$socket = new React\Socket\Server('tls://127.0.0.1:1080', $loop, array(
+    'tls' => array(
+        'local_cert' => __DIR__ . '/localhost.pem',
+    )
+));
+$server = new Server($loop, $socket);
+```
+
+See also [example 31](examples).
+
+> Note that for most use cases, [secure TLS connections](#secure-tls-connections)
+  should be used instead. SOCKS over TLS is considered advanced usage and is
+  used very rarely in practice.
+
+> Note that the SOCKS protocol does not support the notion of TLS. The above
+  works reasonably well because TLS is only used for the connection between
+  client and proxy server and the SOCKS protocol data is otherwise identical.
+  This implies that this does also not support [proxy chaining](#server-proxy-chaining)
+  over multiple TLS paths.
+
+#### Server Unix domain sockets
+
+All [SOCKS protocol versions](#server-protocol-version) support forwarding TCP/IP
+based connections and higher level protocols.
+In some advanced cases, it may be useful to let your SOCKS server listen on a
+Unix domain socket (UDS) path instead of a IP:port combination.
+For example, this allows you to rely on file system permissions instead of
+having to rely on explicit [authentication](#server-authentication).
+
+You can simply start your listening socket on the `unix://` URI scheme like this:
+
+```php
+$loop = \React\EventLoop\Factory::create();
+
+// listen on /tmp/proxy.sock
+$socket = new React\Socket\Server('unix:///tmp/proxy.sock', $loop);
+$server = new Server($loop, $socket);
+```
+
+> Note that Unix domain sockets (UDS) are considered advanced usage and that
+  the SOCKS protocol does not support the notion of UDS paths. The above
+  works reasonably well because UDS is only used for the connection between
+  client and proxy server and the path will not actually passed over the protocol.
+  This implies that this does also not support [proxy chaining](#server-proxy-chaining)
+  over multiple UDS paths.
+
 ## Servers
 
 ### Using a PHP SOCKS server
 
-* If you're looking for an end-user SOCKS server daemon, you may want to
-  use [clue/psocksd](https://github.com/clue/psocksd).
+* If you're looking for an end-user SOCKS server daemon, you may want to use
+  [LeProxy](https://leproxy.org/) or [clue/psocksd](https://github.com/clue/psocksd).
 * If you're looking for a SOCKS server implementation, consider using
   the above [`Server`](#server) class.
 
@@ -754,6 +923,22 @@ Now you can simply use this SSH SOCKS server like this:
 $client = new Client('127.0.0.1:1080', $connector);
 ```
 
+Note that the above will allow all users on the local system to connect over
+your SOCKS server without authentication which may or may not be what you need.
+As an alternative, recent OpenSSH client versions also support
+[Unix domain sockets](#unix-domain-sockets) (UDS) paths so that you can rely
+on Unix file system permissions instead:
+
+```bash
+$ ssh -D/tmp/proxy.sock example.com
+```
+
+Now you can simply use this SSH SOCKS server like this:
+
+```PHP
+$client = new Client('socks+unix:///tmp/proxy.sock', $connector);
+```
+
 ### Using the Tor (anonymity network) to tunnel SOCKS connections
 
 The [Tor anonymity network](http://www.torproject.org) client software is designed
@@ -777,7 +962,7 @@ The recommended way to install this library is [through Composer](https://getcom
 This will install the latest supported version:
 
 ```bash
-$ composer require clue/socks-react:^0.8.6
+$ composer require clue/socks-react:^0.8.7
 ```
 
 See also the [CHANGELOG](CHANGELOG.md) for details about version upgrades.
@@ -828,5 +1013,5 @@ MIT, see LICENSE
   [clue/connection-manager-extra](https://github.com/clue/php-connection-manager-extra)
   which allows retrying unreliable ones, implying connection timeouts,
   concurrently working with multiple connectors and more.
-* If you're looking for an end-user SOCKS server daemon, you may want to
-  use [clue/psocksd](https://github.com/clue/psocksd).
+* If you're looking for an end-user SOCKS server daemon, you may want to use
+  [LeProxy](https://leproxy.org/) or [clue/psocksd](https://github.com/clue/psocksd).

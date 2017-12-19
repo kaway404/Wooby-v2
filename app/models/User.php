@@ -1,6 +1,15 @@
 <?php
 namespace App\Models; 
+use Respect\Validation\Validator as Validator;
+
 class User extends \ActiveRecord\Model{
+// VALIDATION
+	public function validate(){
+		if(!Validator::email()->validate($this->email)){
+			$this->errors->add('email', "Não e valido");
+		}
+	}
+
 	static function authenticate($user,$pass){
 		if(isset($_SESSION['id'])){
 			unset($_SESSION['id']);

@@ -2,6 +2,7 @@
 define("PROJECTPATH", dirname(__DIR__));
 define("APPPATH", PROJECTPATH . '/app');
 define("DEBUG", false);
+
 require "../vendor/autoload.php";
 use PHPRouter\RouteCollection;
 use PHPRouter\Router;
@@ -16,8 +17,6 @@ require_once('../app/controllers/sessionsController.php');
 require_once('../app/models/User.php');
 require_once('../core/view.php');
 */
-
-
 if (!session_id()) @session_start();
 function autoload_classes($class_name){
 	$filename = PROJECTPATH . '/' . str_replace('\\', '/', $class_name) .'.php';
@@ -34,12 +33,14 @@ spl_autoload_register('autoload_classes');
 
 
 
+
+
 ActiveRecord\Config::initialize(function($cfg)
 {
 	
 	$cfg->set_model_directory(PROJECTPATH.'/App/Models');
 	$cfg->set_connections(array(
-	'development' => 'mysql://root:Silvereye1990@localhost/biometric;charset=utf8'));
+	'development' => 'mysql://root:Silvereye1990@localhost/wooby;charset=utf8'));
 });
 
 

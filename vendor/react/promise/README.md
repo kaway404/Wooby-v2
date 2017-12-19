@@ -1,5 +1,5 @@
-React/Promise
-=============
+Promise
+=======
 
 A lightweight implementation of
 [CommonJS Promises/A](http://wiki.commonjs.org/wiki/Promises/A) for PHP.
@@ -13,7 +13,7 @@ Table of Contents
 1. [Introduction](#introduction)
 2. [Concepts](#concepts)
    * [Deferred](#deferred)
-   * [Promise](#promise)
+   * [Promise](#promise-1)
 3. [API](#api)
    * [Deferred](#deferred-1)
      * [Deferred::promise()](#deferredpromise)
@@ -29,7 +29,7 @@ Table of Contents
         * [ExtendedPromiseInterface::progress()](#extendedpromiseinterfaceprogress)
    * [CancellablePromiseInterface](#cancellablepromiseinterface)
         * [CancellablePromiseInterface::cancel()](#cancellablepromiseinterfacecancel)
-   * [Promise](#promise-1)
+   * [Promise](#promise-2)
    * [FulfilledPromise](#fulfilledpromise)
    * [RejectedPromise](#rejectedpromise)
    * [LazyPromise](#lazypromise)
@@ -57,7 +57,7 @@ Table of Contents
 Introduction
 ------------
 
-React/Promise is a library implementing
+Promise is a library implementing
 [CommonJS Promises/A](http://wiki.commonjs.org/wiki/Promises/A) for PHP.
 
 It also provides several other useful promise-related concepts, such as joining
@@ -106,7 +106,7 @@ The `resolve` and `reject` methods control the state of the deferred.
 The `notify` method is for progress notification.
 
 The constructor of the `Deferred` accepts an optional `$canceller` argument.
-See [Promise](#promise-1) for more information.
+See [Promise](#promise-2) for more information.
 
 #### Deferred::promise()
 
@@ -169,7 +169,7 @@ Neither its state nor its result (or error) can be modified.
 
 #### Implementations
 
-* [Promise](#promise-1)
+* [Promise](#promise-2)
 * [FulfilledPromise](#fulfilledpromise)
 * [RejectedPromise](#rejectedpromise)
 * [LazyPromise](#lazypromise)
@@ -827,7 +827,7 @@ You can get the original rejection reason by calling `$exception->getReason()`.
 Credits
 -------
 
-React/Promise is a port of [when.js](https://github.com/cujojs/when)
+Promise is a port of [when.js](https://github.com/cujojs/when)
 by [Brian Cavalier](https://github.com/briancavalier).
 
 Also, large parts of the documentation have been ported from the when.js
@@ -837,4 +837,4 @@ Also, large parts of the documentation have been ported from the when.js
 License
 -------
 
-React/Promise is released under the [MIT](https://github.com/reactphp/promise/blob/master/LICENSE) license.
+Released under the [MIT](LICENSE) license.

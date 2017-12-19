@@ -1,6 +1,8 @@
 base_path: /
 routes:
   index: [/,App\Controllers\homeController.index,GET]
-  login: [/sessions/create,App\Controllers\sessionsController.create,POST]
+  login: [/sign_in,App\Controllers\sessionsController.create,POST]
   sign_up: [/sign_up,App\Controllers\registrationsController.new,GET]
+  sign_out: [/sign_out,App\Controllers\sessionsController.destroy,GET]
   create_user: [/registrations/create,App\Controllers\registrationsController.create,POST]
+  edit_user: [/users/:id/edit,App\Controllers\usersController.edit,GET]

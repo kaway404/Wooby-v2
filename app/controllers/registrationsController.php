@@ -10,11 +10,12 @@ class registrationsController extends Controller{
 
 	public function create(){
 		$user=new User($_POST['User']);
-		if($user->save){
+		if($user->save()){
 			$this->msg->success('Cadastro realizado com sucesso!','/');
 		}
 		else{
 			$this->msg->error('Cadastro Falhido','/');
+
 		}
 	}
 }

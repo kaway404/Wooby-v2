@@ -7,8 +7,11 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Whoops\\' => array($vendorDir . '/filp/whoops/src/Whoops'),
+    'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'Symfony\\Component\\Yaml\\' => array($vendorDir . '/symfony/yaml'),
+    'Symfony\\Component\\VarDumper\\' => array($vendorDir . '/symfony/var-dumper'),
     'RingCentral\\Psr7\\' => array($vendorDir . '/ringcentral/psr7/src'),
+    'Respect\\Validation\\' => array($vendorDir . '/respect/validation/library'),
     'React\\Stream\\' => array($vendorDir . '/react/stream/src'),
     'React\\Socket\\' => array($vendorDir . '/react/socket/src'),
     'React\\Promise\\Timer\\' => array($vendorDir . '/react/promise-timer/src'),
@@ -26,6 +29,8 @@ return array(
     'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
     'Fig\\Http\\Message\\' => array($vendorDir . '/fig/http-message-util/src'),
     'Fbns\\Client\\' => array($vendorDir . '/valga/fbns-react/src'),
+    'Egulias\\EmailValidator\\' => array($vendorDir . '/egulias/email-validator/EmailValidator'),
+    'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/lib/Doctrine/Common/Lexer'),
     'Clue\\React\\Socks\\' => array($vendorDir . '/clue/socks-react/src'),
     'Clue\\React\\HttpProxy\\' => array($vendorDir . '/clue/http-proxy-react/src'),
     'BinSoul\\Net\\Mqtt\\Client\\React\\' => array($vendorDir . '/binsoul/net-mqtt-client-react/src'),
