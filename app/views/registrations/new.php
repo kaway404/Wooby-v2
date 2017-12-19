@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <a class="navbar-brand" href="/"><img src="/static/logo.png" class="logo"/></a>
+      <a class="navbar-brand" href="/"><img src="/assets/img/logo.png" class="logo"/></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -20,25 +20,19 @@
 <form class="ui form">
   <div class="field">
     <label>Email</label>
-    <input type="email" name="[User][email]" placeholder="E-mail">
+    <input class="uifo" type="email" name="[User][email]" placeholder="E-mail">
   </div>
   <div class="field">
     <label>Senha</label>
-    <input type="password" name="[User][senha]" placeholder="Senha">
+    <input class="uifo" type="password" name="[User][password]" placeholder="Senha">
   </div>
   <div class="field">
     <label>Nome de usuario</label>
-    <input type="text" name="[User][usuario]" placeholder="Nome de usuario">
+    <input class="uifo" type="text" name="[User][usuario]" placeholder="Nome de usuario">
   </div>
   <div class="field">
     <label>Nome de quem vai usar a conta</label>
-    <input type="text" name="[User][perfil]" placeholder="Perfil">
-  </div>
-  <div class="field">
-    <div class="ui checkbox">
-      <input type="checkbox" tabindex="0" class="hidden">
-      <label>Concordo com os termos de usos</label>
-    </div>
+    <input class="uifo" type="text" name="[User][perfil]" placeholder="Perfil">
   </div>
   <button class="ui button" type="submit">Registrar</button>
 </form>
@@ -47,7 +41,7 @@
 
 <style>
 .background{
-	background-image: url(http://woobyanimes.com/static/backgronds/1.png);
+	background-image: url(http://www.mulierchile.com/anime-wallpaper-background/anime-wallpaper-background-004.jpg);
 }
 </style>
 
