@@ -33,11 +33,11 @@ class User extends \ActiveRecord\Model{
 		}
 	}
 // PRIVATE
-	private function set_confirmation_token(){
+	public function set_confirmation_token(){
 		$this->confirmation_token=md5($this->email.$this->username);
 	}
 
-	private function set_confirmation_email(){
+	public function send_confirmation_email(){
 		$mail = new PHPMailer(true); 
 		try{
 

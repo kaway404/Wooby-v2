@@ -1,7 +1,7 @@
 <?php 
 define("PROJECTPATH", dirname(__DIR__));
 define("APPPATH", PROJECTPATH . '/app');
-define("DEBUG", false);
+define("DEBUG", true);
 
 require "../vendor/autoload.php";
 use PHPRouter\RouteCollection;

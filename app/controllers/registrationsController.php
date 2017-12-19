@@ -1,7 +1,7 @@
 <?php 
 namespace App\Controllers;
 use \Core\View;
-use \App\Models\User;
+use \App\Models\User as User;
 
 class registrationsController extends Controller{
 	public function new(){
@@ -10,7 +10,8 @@ class registrationsController extends Controller{
 	}
 
 	public function create(){
-		$user=new User($_POST['User']);
+		print_r($_POST);
+		die();
 		if($user->save()){
 			$this->msg->success('Cadastro realizado com sucesso!','/');
 		}
