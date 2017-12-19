@@ -15,9 +15,9 @@
 </nav>
 
 
-<div class="align-login">
+<div class="align-login form">
 <div class="loginfs">
-<form class="ui form">
+<form method='post' action='/registrations/create'>
   <div class="field">
     <label>Email</label>
     <input class="uifo" type="email" name="[User][email]" placeholder="wooby@exemplo.com">
@@ -34,7 +34,7 @@
     <label>Nome de quem vai usar a conta</label>
     <input class="uifo" type="text" name="[User][perfil]" placeholder="Exemplo">
   </div>
-  <button class="ui button" type="submit">Registrar</button>
+  <button class="cadastrar" type="submit">Registrar</button>
 </form>
 </div>
 </div>
