@@ -28,7 +28,7 @@
   </div>
   <div class="field">
     <label>Nome</label>
-    <input class="uifo" type="text" name="User[fist_name]" placeholder="Alexandre">
+    <input class="uifo" type="text" name="User[first_name]" placeholder="Alexandre">
   </div>
   <div class="field">
     <label>Sobrenome</label>
