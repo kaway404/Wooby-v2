@@ -1,3 +1,8 @@
+*{
+	outline: none;
+    list-style:none;
+}
+
 body{
 	background: #000 !important;
 }
@@ -183,4 +188,27 @@ footer{
 	top: 0;
 	left: 0;
 	background-size: cover;
+}
+
+.uifo{
+	width: 100%;
+	height: 35px;
+	border: none;
+	padding: 5px;
+	box-sizing: border-box;
+}
+
+.form label{
+	font-size: 18px;
+	padding: 5px;
+}
+
+.ui .button{
+	height: 40px;
+	position: relative;
+	top: 20px;
+	width: 120px;
+	border: none;
+	background: #4754b1;
+	color: #fff;
 }
