@@ -22,7 +22,7 @@
 		
 	</head>
 	<body>
-			<nav class="navbar navbar-default defaultw">
+	<nav class="navbar navbar-default defaultw">
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
@@ -42,7 +42,7 @@
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->
-</nav>
+	</nav>
 	<?php $msg = new \Plasticbrain\FlashMessages\FlashMessages(); ?>
 	<?php $msg->display(); ?>
 	<?= $str ?>
