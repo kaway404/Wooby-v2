@@ -20,19 +20,19 @@
 <form method='post' action='/registrations/create'>
   <div class="field">
     <label>Email</label>
-    <input class="uifo" type="email" name="[User][email]" placeholder="wooby@exemplo.com">
+    <input class="uifo" type="email" name="User[email]" placeholder="wooby@exemplo.com">
   </div>
   <div class="field">
     <label>Senha</label>
-    <input class="uifo" type="password" name="[User][password]" placeholder="Senha">
+    <input class="uifo" type="password" name="User[password]" placeholder="Senha">
   </div>
   <div class="field">
     <label>Nome de usuario</label>
-    <input class="uifo" type="text" name="[User][usuario]" placeholder="Exemplo">
+    <input class="uifo" type="text" name="User[usuario]" placeholder="Exemplo">
   </div>
   <div class="field">
     <label>Nome de quem vai usar a conta</label>
-    <input class="uifo" type="text" name="[User][perfil]" placeholder="Exemplo">
+    <input class="uifo" type="text" name="User[perfil]" placeholder="Exemplo">
   </div>
   <button class="cadastrar" type="submit">Registrar</button>
 </form>
