@@ -27,8 +27,16 @@
     <input class="uifo" type="password" name="User[password]" placeholder="Senha">
   </div>
   <div class="field">
+    <label>Nome</label>
+    <input class="uifo" type="text" name="User[fist_name]" placeholder="Alexandre">
+  </div>
+  <div class="field">
+    <label>Sobrenome</label>
+    <input class="uifo" type="text" name="User[last_name]" placeholder="Silva">
+  </div>
+  <div class="field">
     <label>Nome de usuario</label>
-    <input class="uifo" type="text" name="User[username]" placeholder="Exemplo">
+    <input class="uifo" type="text" name="User[username]" placeholder="kaway">
   </div>
   <button class="cadastrar" type="submit">Registrar</button>
 </form>
