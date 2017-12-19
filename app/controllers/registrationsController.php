@@ -2,6 +2,7 @@
 namespace App\Controllers;
 use \Core\View;
 use \App\Models\User;
+
 class registrationsController extends Controller{
 	public function new(){
 		View::set('title','Cadastro de Usuario');
@@ -18,6 +19,16 @@ class registrationsController extends Controller{
 
 		}
 	}
+
+	public function send_password_link(){
+
+	}
+
+	public function confirm(){
+
+	}
+
+
 }
 
  ?>

@@ -47,6 +47,7 @@ class ComposerStaticInit807d74d1de1a99a32e5bb31b6b1cedf5
             'Psr\\Http\\Message\\' => 17,
             'Plasticbrain\\FlashMessages\\' => 27,
             'PHPRouter\\' => 10,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'I' => 
         array (
@@ -151,6 +152,10 @@ class ComposerStaticInit807d74d1de1a99a32e5bb31b6b1cedf5
         'PHPRouter\\' => 
         array (
             0 => __DIR__ . '/..' . '/dannyvankooten/php-router/src',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
         'InstagramAPI\\' => 
         array (
