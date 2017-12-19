@@ -196,6 +196,11 @@ footer{
 	border: none;
 	padding: 5px;
 	box-sizing: border-box;
+	border: 1px solid #ccc;
+}
+
+.uifo:focus{
+	border: 1px solid #555;
 }
 
 .form label{

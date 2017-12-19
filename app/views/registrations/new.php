@@ -9,7 +9,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="nav navbar-nav navbar-right navw">
-        <li class="login"><a href="login.php">Login</a></li></ul>
+        <li class="login"><a href="/">Login</a></li></ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
@@ -20,7 +20,7 @@
 <form class="ui form">
   <div class="field">
     <label>Email</label>
-    <input class="uifo" type="email" name="[User][email]" placeholder="E-mail">
+    <input class="uifo" type="email" name="[User][email]" placeholder="wooby@exemplo.com">
   </div>
   <div class="field">
     <label>Senha</label>
@@ -28,11 +28,11 @@
   </div>
   <div class="field">
     <label>Nome de usuario</label>
-    <input class="uifo" type="text" name="[User][usuario]" placeholder="Nome de usuario">
+    <input class="uifo" type="text" name="[User][usuario]" placeholder="Exemplo">
   </div>
   <div class="field">
     <label>Nome de quem vai usar a conta</label>
-    <input class="uifo" type="text" name="[User][perfil]" placeholder="Perfil">
+    <input class="uifo" type="text" name="[User][perfil]" placeholder="Exemplo">
   </div>
   <button class="ui button" type="submit">Registrar</button>
 </form>
