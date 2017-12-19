@@ -1,21 +1,16 @@
-<div class="overlay"></div>
-
-
-
 <!-- /.Default apresentation -->
 <div class="jumbotron homec">
 	<center>
 		<h1>Comece seu mês gratuito.</h1>
-		<p>Assista a seus animes favoritos agora no Wooby.</p>
-		<p><a class="btn btn-primary btn-lg re" href="/sign_up" role="button">CRIAR CONTA GRÁTIS</a></p>
+		<p>Assista a seus animes favoritos agora no Wooby!</p>
+		<p><a class="btn btn-primary btn-lg re" href="/sign_up" role="button">EXPERIMENTE UM MÊS GRÁTIS.</a></p>
 	</center>
 </div>
 
 
 <div class="jumbotron seja">
 	<center>
-		<h1>Seja assinante um Wooby quando quiser.</h1>
-		<p>Continue o vídeo de onde parou.</p>
+		<h1>Seja um assinante Wooby <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> </h1>
 	</center>
 </div>
 
@@ -25,9 +20,9 @@
 <div class="sejaa">
 
 	<center>
-		<img src="http://www.animexis.com.br/wp-content/uploads/2015/07/aang2.jpg" class="avatar" />
-		<h1>Veja seus animes favoritos!</h1>
-		<p>Eu experimentei um mês grátis, eu gostei muito e vou comprar agora!</p>
+		<img src="https://scontent.ffln4-1.fna.fbcdn.net/v/t1.0-9/20882561_273085526510577_87597807401529003_n.jpg?oh=fd9447316153acd26c1b9167648d36e0&oe=5ACA7EF1" class="avatar" />
+		<h1> Alexandre Silva</h1>
+		<p>Eu experimente um mês, e gostei bastante!</p>
 	</center>
 </div>
 <footer>
@@ -60,8 +55,3 @@
 	</div>
 </div>
 
-
-
-<script>
-
-</script>
