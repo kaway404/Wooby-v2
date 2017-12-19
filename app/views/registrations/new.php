@@ -1,5 +1,6 @@
 <div class="align-login form">
 <div class="loginfs">
+<h1>Cadastrar</h1>
 <form method='post' action='/registrations/create'>
   <div class="field">
     <label>Email</label>
@@ -11,7 +12,7 @@
   </div>
   <div class="field">
     <label>Nome</label>
-    <input class="uifo" type="text" name="User[fist_name]" placeholder="Alexandre">
+    <input class="uifo" type="text" name="User[first_name]" placeholder="Alexandre">
   </div>
   <div class="field">
     <label>Sobrenome</label>
