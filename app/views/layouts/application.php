@@ -45,9 +45,6 @@
 	<?php $msg->display(); ?>
 	<?= $str ?>
 	
-	<footer>
-	<p>Wooby Animes - Todos os direitos reservados. <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></p>
-	</footer>
 	
 	<script src="assets/js/bootstrap.min.js"></script>
 	</body>
