@@ -1,42 +1,29 @@
-<nav class="navbar navbar-default defaultw">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/"><img src="/assets/img/logo.png" class="logo"/></a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-      <ul class="nav navbar-nav navbar-right navw">
-        <li class="login"><a href="/">Login</a></li></ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-
 <div class="align-login form">
-<div class="loginfs">
-<form method='post' action='/registrations/create'>
-  <div class="field">
-    <label>Email</label>
-    <input class="uifo" type="email" name="User[email]" placeholder="wooby@exemplo.com">
-  </div>
-  <div class="field">
-    <label>Senha</label>
-    <input class="uifo" type="password" name="User[password]" placeholder="Senha">
-  </div>
-  <div class="field">
-    <label>Nome de usuario</label>
-    <input class="uifo" type="text" name="User[username]" placeholder="Exemplo">
-  </div>
-  <div class="field">
-    <label>Nome de quem vai usar a conta</label>
-    <input class="uifo" type="text" name="User[first_name]" placeholder="Exemplo">
-  </div>
-  <button class="cadastrar" type="submit">Registrar</button>
-</form>
-</div>
+	<div class="loginfs">
+		<h1>Cadastrar</h1>
+		<form method='post' action='/registrations/create'>
+			<div class="field">
+				<label>Email</label>
+				<input class="uifo" type="email" name="User[email]" placeholder="wooby@exemplo.com">
+			</div>
+			<div class="field">
+				<label>Senha</label>
+				<input class="uifo" type="password" name="User[password]" placeholder="Senha">
+			</div>
+			<div class="field">
+				<label>Nome de quem vai usar a conta</label>
+				<input class="uifo" type="text" name="User[first_name]" placeholder="Exemplo">
+				<label>Sobrenome</label>
+				<input class="uifo" type="text" name="User[last_name]" placeholder="Silva">
+			</div>
+			<div class="field">
+				<label>Nome de usuario</label>
+				<input class="uifo" type="text" name="User[username]" placeholder="kaway">
+
+			</div>
+			<button class="cadastrar" type="submit">Registrar</button>
+		</form>
+	</div>
 </div>
 
 <style>
@@ -44,5 +31,32 @@
 	background-image: url(http://www.mulierchile.com/anime-wallpaper-background/anime-wallpaper-background-004.jpg);
 }
 </style>
+
+<div class="modal" tabindex="-1" role="dialog" id='login_modal'>
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Login
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<label for="email">Email:</label>
+					<input type="email" class="form-control" id="email">
+				</div>
+				<div class="form-group">
+					<label for="senha">Senha:</label>
+					<input type="password" class="form-control" id="senha">
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary">Login</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+			</div>
+		</div>
+	</div>
+</div>
+
 
 <div class="background"></div>
