@@ -6,3 +6,4 @@ routes:
   sign_out: [/sign_out,App\Controllers\sessionsController.destroy,GET]
   create_user: [/registrations/create,App\Controllers\registrationsController.create,POST]
   edit_user: [/users/:id/edit,App\Controllers\usersController.edit,GET]
+  backend: [/backend,App\Controllers\Backend\homeController.index,GET]

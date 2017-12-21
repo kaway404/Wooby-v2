@@ -5,15 +5,25 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 class User extends \ActiveRecord\Model{
 // Callbacks
-	static $before_create=['set_confirmation_token'];
+	static $before_save=['set_confirmation_token'];
 	static $after_create=['send_confirmation_email'];
 // VALIDATION
 	public function validate(){
+		// Email no puede estar vacio
 		if(!Validator::email()->validate($this->email)){
 			$this->errors->add('email', "Não e valido");
 		}
-	}
+		// Email no puede estar duplicado
+		if(static::exists(['conditions'=>['email = ?',$this->email]])){
+			$this->errors->add('email',"ja existe");
+		}
+		// Username no puede estar duplicado
+		if(static::exists(['conditions'=>['username = ?',$this->username]])){
+			$this->errors->add('username',"ja existe");
+		}
 
+	}
+	
 	static function authenticate($user,$pass){
 		if(isset($_SESSION['id'])){
 			unset($_SESSION['id']);
@@ -32,37 +42,47 @@ class User extends \ActiveRecord\Model{
 			return true;
 		}
 	}
-// PRIVATE
+
 	public function set_confirmation_token(){
 		$this->confirmation_token=md5($this->email.$this->username);
 	}
-
 	public function send_confirmation_email(){
 		$mail = new PHPMailer(true); 
 		try{
-
-			$mail->SMTPDebug = 2;
+			$mail->SMTPDebug = 3;
 			$mail->isSMTP();
-			$mail->Host = 'smtp1.example.com;smtp2.example.com';
+			$mail->Host = 'smtp.gmail.com';
 			$mail->SMTPAuth = true;
-			$mail->Username = 'user@example.com';
-			$mail->Password = 'secret';
+			$mail->Username = 'luxrafacm@gmail.com';
+			$mail->Password = 'Danapacmb0';
 			$mail->SMTPSecure = 'tls';
 			$mail->Port = 587;
-
-
-			$mail->setFrom('wooby@wooby.com', 'Equipe do wooby');
+			$mail->SMTPOptions = array(
+				'ssl' => array(
+					'verify_peer' => false,
+					'verify_peer_name' => false,
+					'allow_self_signed' => true
+				)
+			);
+			$mail->setFrom('luxrafacm@gmail.com', 'Equipe do wooby');
 			$mail->addAddress($this->email);
-			$mail->Subject = 'Here is the subject';
-			$mail->Body    = 'Confirmation token';
-			$mail->send();
+			$mail->Subject = 'Confirme sua conta';
+			$mail->Body= 
+			'Olá usuário, tivemos uma solicitação de criação de conta em nossos servidores no nome de:
+			Para confirmar sua conta, clique no link a baixo! <br>
+
+			LINK';
+			if($mail->send()){
+				echo 'sent';
+			}
+			else{
+				die();
+			}
+		}
+		catch(\Exception $e){
+			die($e->getMessage());
 
 		}
-		catch(Exception $e){
-			echo 'Message could not be sent.';
-			echo 'Mailer Error: ' . $mail->ErrorInfo;
-		}
-
 	}
 }
 ?>

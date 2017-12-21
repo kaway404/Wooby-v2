@@ -12,11 +12,11 @@ class registrationsController extends Controller{
 	public function create(){
 		$user=new User($_POST['User']);
 		if($user->save()){
-			$this->msg->success('Cadastro realizado com sucesso!','/');
+			$this->msg->success('Cadastro realizado com sucesso, verifique seu email para confirmar sua conta','/');
 		}
 		else{
-			$this->msg->error('Cadastro Falhido','/');
-
+			$errors=$user->errors->full_messages();
+			$this->msg->error(implode('<br>',$errors),'/');
 		}
 	}
 
@@ -24,8 +24,16 @@ class registrationsController extends Controller{
 
 	}
 
-	public function confirm(){
-
+	public function confirm($id,$token){
+		$user=User::find($id);
+		if($user->confirmation_token===$token){
+			$user->confirmed=1;
+			$user->save();
+			$this->msg->success('Sua conta foi confirmada com sucesso','/');
+		}
+		else{
+			$this->msg->error('Confirmaçao inválida','/');
+		}
 	}
 
 
