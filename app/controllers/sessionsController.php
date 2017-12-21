@@ -16,6 +16,16 @@ class sessionsController{
 		unset($_SESSION['id'],$_SESSION['usuario'],$_SESSION['date'],$_SESSION['type']);
 		$_SESSION['autentica']=false;
 	}
+
+	public function recover(){
+		View::set('title',"Recuperar Senha");
+		View::render('sessions/recover');
+	}
+
+	public function send_password_token(){
+		$user=User::find_by_email($_POST['email']);
+		/* Template de html faltando aqui */
+	}
 }
 
  ?>

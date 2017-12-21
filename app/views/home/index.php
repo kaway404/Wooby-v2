@@ -1,3 +1,5 @@
+<div class="overlay"></div>
+
 <!-- /.Default apresentation -->
 <div class="jumbotron homec">
 	<center>
