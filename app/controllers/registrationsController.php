@@ -11,6 +11,7 @@ class registrationsController extends Controller{
 
 	public function create(){
 		$user=new User($_POST['User']);
+		$user->password=password_hash($user->password,PASSWORD_DEFAULT);
 		if($user->save()){
 			$this->msg->success('Cadastro realizado com sucesso, verifique seu email para confirmar sua conta','/');
 		}

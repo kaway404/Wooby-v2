@@ -24,15 +24,17 @@ class User extends \ActiveRecord\Model{
 
 	}
 	
-	static function authenticate($user,$pass){
+	static function authenticate($email,$pass){
 		if(isset($_SESSION['id'])){
 			unset($_SESSION['id']);
 		}
-		$usuario=static::find(array('conditions'=>array("usuario='".$user."' and clave='".$pass."'")));
+		$usuario=static::find_by_email($email);
 		if(!$usuario){
 			return false;
 		}
-
+		if(!$usuario->password==password_verify($pass)){
+			return false;
+		}
 		else{
 			$_SESSION['id']=$usuario->id;
 			$_SESSION['usuario']=$usuario->usuario;

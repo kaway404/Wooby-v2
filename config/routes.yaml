@@ -7,3 +7,5 @@ routes:
   create_user: [/registrations/create,App\Controllers\registrationsController.create,POST]
   edit_user: [/users/:id/edit,App\Controllers\usersController.edit,GET]
   backend: [/backend,App\Controllers\Backend\homeController.index,GET]
+  backend_users: [/backend/users,App\Controllers\Backend\usersController.index,GET]
+  backend_users_show: [/backend/users/:id,App\Controllers\Backend\usersController.show,GET]
